@@ -1,5 +1,5 @@
 import argparse
-from os.path import isfile
+from pathlib import Path
 from PIL import Image, ImageDraw
 from datetime import datetime
 import re
@@ -100,7 +100,7 @@ def get_savegame_path ( filename ):
     return f"games/{filename}.oth"
 
 def check_file_exists ( filename ):
-    return isfile( get_savegame_path( filename ))
+    return Path( get_savegame_path( filename )).is_file()
 
 def load_game ( filename ):
     with open( get_savegame_path( filename ), "r" ) as file:
@@ -173,7 +173,8 @@ def draw_game ( filename ):
                 fill=color
             )
 
-    image.save( f"output/{filename}-{datetime.now().strftime('%Y%m%d-%H%M%S')}.png" )
+    Path( f"output/{filename}" ).mkdir( exist_ok=True )
+    image.save( f"output/{filename}/{filename}-{datetime.now().strftime('%Y%m%d-%H%M%S')}.png" )
 
 parser     = argparse.ArgumentParser()
 subparsers = parser.add_subparsers( dest="subcommand" )
