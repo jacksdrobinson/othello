@@ -37,6 +37,8 @@ class Board:
         return "\n".join([ "".join( row ) for row in self ])
 
     def get_cell( self, row, column ):
+        if row < 0 or column < 0:
+            return None
         try:
             cell = self.rows[ row ][ column ]
             return None if cell == " " else cell
