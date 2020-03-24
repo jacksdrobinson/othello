@@ -131,9 +131,9 @@ def draw_game ( filename ):
         "B": black
     }
 
-    board  = load_game( filename )
-    image  = Image.new( "RGB", ( image_height, image_height ), color=light_green )
-    draw   = ImageDraw.Draw( image )
+    board = load_game( filename )
+    image = Image.new( "RGB", ( image_height, image_height ), color=light_green )
+    draw  = ImageDraw.Draw( image )
 
     for row_index, row in enumerate( board ):
 
@@ -205,8 +205,16 @@ def is_valid_position ( value ):
         raise ValueError( message )
     return readable_cell_to_tuple( value )
 
-move_parser.add_argument( "color",    help="The colour of the player making the move.",        type=is_valid_color )
-move_parser.add_argument( "position", help="The position on the game board to make the move.", type=is_valid_position )
+move_parser.add_argument(
+    "color",
+    help="The colour of the player making the move, either 'w' or 'b'.",
+    type=is_valid_color
+)
+move_parser.add_argument(
+    "position",
+    help="The position on the game board to make the move, in the form '<column_letter><row_number>', e.g. A1.",
+    type=is_valid_position
+)
 
 def main ():
 
