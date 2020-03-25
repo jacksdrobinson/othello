@@ -8,6 +8,17 @@ rendering games of Othello.
 It enforces placement rules, but does not enforce which player's turn it is, nor does it maintain a history of the
 past states of the game.
 
+## Installation
+
+You will need Python 3.4+ and [Pillow](https://pypi.org/project/Pillow/) to run this script.
+
+Pillow and PIL (Python Imaging Library) cannot co-exist, so you may need to uninstall PIL if you've installed it
+before. To install Pillow, run:
+
+```
+pip install Pillow
+```
+
 ## CLI Reference
 
 ```

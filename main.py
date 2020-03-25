@@ -1,8 +1,8 @@
-import argparse
-from pathlib import Path
-from PIL import Image, ImageDraw
-from datetime import datetime
 import re
+import argparse
+from PIL import Image, ImageDraw
+from pathlib import Path
+from datetime import datetime
 
 def tuple_to_readable_cell( row, column ):
     return "ABCDEFGH"[ column ] + str(row+1)
